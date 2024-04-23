@@ -1,0 +1,92 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smarthome7-dev-183235-authRole",
+      "UnauthRoleArn": "arn:aws:iam::570894236010:role/amplify-smarthome7-dev-183235-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::570894236010:role/amplify-smarthome7-dev-183235-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-smarthome7-dev-183235-deployment",
+      "UnauthRoleName": "amplify-smarthome7-dev-183235-unauthRole",
+      "StackName": "amplify-smarthome7-dev-183235",
+      "StackId": "arn:aws:cloudformation:eu-central-1:570894236010:stack/amplify-smarthome7-dev-183235/542daa40-bffe-11ec-8262-0266c62d4f9a",
+      "AmplifyAppId": "d3hh2xa9py79le"
+    }
+  },
+  "api": {
+    "smarthome7": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-04-19T16:33:52.937Z",
+              "description": "api_smarthome7"
+            }
+          },
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authsmarthome756fad09f"
+              }
+            }
+          ]
+        },
+        "GraphQLAPIIdOutput": "yyw7s6aa5bc3rkgzgklsen3zfe",
+        "GraphQLAPIEndpointOutput": "https://mzkb7xqhifgnxn6nkdxryjnfd4.appsync-api.eu-central-1.amazonaws.com/graphql",
+        "GraphQLAPIKeyOutput": "da2-rwy7ffdq7jfclbrw5i6irw4the"
+      },
+      "lastPushTimeStamp": "2022-04-19T18:03:28.304Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smarthome7-dev-183235-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apismarthome7"
+      },
+      "lastPushDirHash": "NL5ovoINFtt1BR8rbD+TSToFT9A="
+    }
+  },
+  "auth": {
+    "smarthome756fad09f": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "signupAttributes": [
+          "EMAIL",
+          "NAME"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-smarthome7-dev-183235-deployment/amplify-cfn-templates/auth/smarthome756fad09f-cloudformation-template.json",
+        "logicalId": "authsmarthome756fad09f"
+      },
+      "lastPushTimeStamp": "2022-04-19T18:03:24.555Z",
+      "output": {
+        "UserPoolId": "eu-central-1_CUqendwvy",
+        "AppClientIDWeb": "410v550j0ph5udeqck6nvmvlha",
+        "AppClientID": "6kcc0ko2uh0gveriltab955igi",
+        "IdentityPoolId": "eu-central-1:e6efd27c-0f81-4509-a9fd-44da4e9a9e17",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-central-1:570894236010:userpool/eu-central-1_CUqendwvy",
+        "IdentityPoolName": "smarthome756fad09f_identitypool_56fad09f__dev",
+        "UserPoolName": "smarthome756fad09f_userpool_56fad09f"
+      },
+      "lastPushDirHash": "5zVD+YFH3UlZ3VEF8lN650izXH8="
+    }
+  }
+}

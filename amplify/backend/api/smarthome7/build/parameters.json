@@ -1,0 +1,13 @@
+{
+    "AppSyncApiName": "smarthome7",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authsmarthome756fad09f",
+            "Outputs.UserPoolId"
+        ]
+    },
+    "S3DeploymentBucket": "amplify-smarthome7-dev-183235-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/5dd0b5f95aad1a3a6f9f2bae6f89224d8d96ee4b"
+}

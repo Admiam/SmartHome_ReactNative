@@ -1,0 +1,240 @@
+
+type CreateDHT {
+  id: ID!
+  dhtID: String!
+  dhtTitle: String!
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type CreateLamp {
+  id: ID!
+  lampID: String!
+  lampTitle: String!
+  red: String
+  green: String
+  blue: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelCreateDHTConnection {
+  items: [CreateDHT]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelCreateDHTFilterInput {
+  id: ModelIDInput
+  dhtID: ModelStringInput
+  dhtTitle: ModelStringInput
+  and: [ModelCreateDHTFilterInput]
+  or: [ModelCreateDHTFilterInput]
+  not: ModelCreateDHTFilterInput
+}
+
+type Query {
+  getCreateDHT(id: ID!): CreateDHT
+  listCreateDHTS(filter: ModelCreateDHTFilterInput, limit: Int, nextToken: String): ModelCreateDHTConnection
+  syncCreateDHTS(filter: ModelCreateDHTFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelCreateDHTConnection
+  getCreateLamp(id: ID!): CreateLamp
+  listCreateLamps(filter: ModelCreateLampFilterInput, limit: Int, nextToken: String): ModelCreateLampConnection
+  syncCreateLamps(filter: ModelCreateLampFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelCreateLampConnection
+}
+
+input ModelCreateDHTConditionInput {
+  dhtID: ModelStringInput
+  dhtTitle: ModelStringInput
+  and: [ModelCreateDHTConditionInput]
+  or: [ModelCreateDHTConditionInput]
+  not: ModelCreateDHTConditionInput
+}
+
+input CreateCreateDHTInput {
+  id: ID
+  dhtID: String!
+  dhtTitle: String!
+  _version: Int
+}
+
+input UpdateCreateDHTInput {
+  id: ID!
+  dhtID: String
+  dhtTitle: String
+  _version: Int
+}
+
+input DeleteCreateDHTInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createCreateDHT(input: CreateCreateDHTInput!, condition: ModelCreateDHTConditionInput): CreateDHT
+  updateCreateDHT(input: UpdateCreateDHTInput!, condition: ModelCreateDHTConditionInput): CreateDHT
+  deleteCreateDHT(input: DeleteCreateDHTInput!, condition: ModelCreateDHTConditionInput): CreateDHT
+  createCreateLamp(input: CreateCreateLampInput!, condition: ModelCreateLampConditionInput): CreateLamp
+  updateCreateLamp(input: UpdateCreateLampInput!, condition: ModelCreateLampConditionInput): CreateLamp
+  deleteCreateLamp(input: DeleteCreateLampInput!, condition: ModelCreateLampConditionInput): CreateLamp
+}
+
+type Subscription {
+  onCreateCreateDHT: CreateDHT @aws_subscribe(mutations: ["createCreateDHT"])
+  onUpdateCreateDHT: CreateDHT @aws_subscribe(mutations: ["updateCreateDHT"])
+  onDeleteCreateDHT: CreateDHT @aws_subscribe(mutations: ["deleteCreateDHT"])
+  onCreateCreateLamp: CreateLamp @aws_subscribe(mutations: ["createCreateLamp"])
+  onUpdateCreateLamp: CreateLamp @aws_subscribe(mutations: ["updateCreateLamp"])
+  onDeleteCreateLamp: CreateLamp @aws_subscribe(mutations: ["deleteCreateLamp"])
+}
+
+type ModelCreateLampConnection {
+  items: [CreateLamp]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelCreateLampFilterInput {
+  id: ModelIDInput
+  lampID: ModelStringInput
+  lampTitle: ModelStringInput
+  red: ModelStringInput
+  green: ModelStringInput
+  blue: ModelStringInput
+  and: [ModelCreateLampFilterInput]
+  or: [ModelCreateLampFilterInput]
+  not: ModelCreateLampFilterInput
+}
+
+input ModelCreateLampConditionInput {
+  lampID: ModelStringInput
+  lampTitle: ModelStringInput
+  red: ModelStringInput
+  green: ModelStringInput
+  blue: ModelStringInput
+  and: [ModelCreateLampConditionInput]
+  or: [ModelCreateLampConditionInput]
+  not: ModelCreateLampConditionInput
+}
+
+input CreateCreateLampInput {
+  id: ID
+  lampID: String!
+  lampTitle: String!
+  red: String
+  green: String
+  blue: String
+  _version: Int
+}
+
+input UpdateCreateLampInput {
+  id: ID!
+  lampID: String
+  lampTitle: String
+  red: String
+  green: String
+  blue: String
+  _version: Int
+}
+
+input DeleteCreateLampInput {
+  id: ID!
+  _version: Int
+}
+

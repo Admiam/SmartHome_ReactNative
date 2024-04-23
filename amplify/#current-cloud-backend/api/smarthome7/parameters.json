@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "smarthome7",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authsmarthome756fad09f",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

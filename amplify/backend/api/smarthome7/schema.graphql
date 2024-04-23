@@ -1,0 +1,14 @@
+type CreateDHT @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  dhtID: String!
+  dhtTitle: String!
+}
+
+type CreateLamp @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  lampID: String!
+  lampTitle: String!
+  red: String
+  green: String
+  blue: String
+}
